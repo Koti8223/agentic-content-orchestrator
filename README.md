@@ -331,42 +331,29 @@ Now that you understand the project architecture, let's move to the folder struc
 
 ## 12. FOLDER STRUCTURE
 
-This is the standard file layout for the Multi-Agent Content Creator Studio:
+This is the actual file layout for the Multi-Agent Content Creator Studio:
 
 ```text
-multi-agent-content-studio/
-├── app.py
-├── agents/
-│   ├── researcher.py
-│   ├── blog_writer.py
-│   ├── linkedin_agent.py
-│   ├── youtube_agent.py
-│   └── twitter_agent.py
-├── tools/
-│   └── search_tool.py
-├── prompts/
-│   └── templates.py
-├── requirements.txt
-├── .env
-├── .env.example
-├── .gitignore
-└── README.md
+agentic-content-orchestrator/
+├── app.py           # Streamlit Web Application and UI flow controller
+├── agents.py        # CrewAI Agents and Tasks orchestration pipeline
+├── test_crew.py     # Local Python script to test the agentic workflow in the console
+├── requirements.txt # Python dependencies list (Streamlit, CrewAI, LiteLLM, etc.)
+├── .env             # Private API keys (ignored by Git, never pushed)
+├── .env.example     # Template showing required API keys for setup
+├── .gitignore       # Git rules defining which files/directories to ignore
+└── README.md        # Comprehensive project documentation
 ```
 
 ### File Explanations:
-*   `app.py`: The main entrypoint file that runs the Streamlit UI dashboard and coordinates visual rendering.
-*   `agents/researcher.py`: Configures the Researcher Agent's role, goal, and web search access.
-*   `agents/blog_writer.py`: Configures the Writer Agent's instructions to draft long-form markdown posts.
-*   `agents/linkedin_agent.py`: Configures the LinkedIn Agent's rules to convert articles into engaging updates.
-*   `agents/youtube_agent.py`: Configures the YouTube Agent's script outline structures.
-*   `agents/twitter_agent.py`: Configures the Twitter Agent's formatting and character limitations.
-*   `tools/search_tool.py`: Contains the python code interfacing with the Serper Web Search API.
-*   `prompts/templates.py`: Stores reusable string prompt templates for each agent task.
-*   `requirements.txt`: List of required Python packages and libraries for the project.
-*   `.env`: Private config file storing your secret API keys (never commit to GitHub).
-*   `.env.example`: A template file showing what variables need to be filled in `.env`.
-*   `.gitignore`: Tells Git to ignore private files like `.env` and virtual environments.
-*   `README.md`: This comprehensive documentation file.
+*   `app.py`: The core application file. It builds the custom Cosmic Amethyst Streamlit UI, evaluates prompt strength, runs live workflow status updates, and organizes content tabs.
+*   `agents.py`: Contains the definition of your specialized crew (Researcher, Writer, Editor), maps tasks, integrates tools (DuckDuckGo search), and handles LLM provider mappings.
+*   `test_crew.py`: A simple test harness script that lets you execute the agent crew pipeline directly in the terminal without starting the web UI.
+*   `requirements.txt`: Specifies packages needed for the environment (Streamlit, CrewAI, python-dotenv).
+*   `.env`: Locally contains your personal API keys (Google, OpenAI, Anthropic, Groq).
+*   `.env.example`: A safe configuration template showing new developers how to set up their own `.env` file.
+*   `.gitignore`: A configuration file that prevents your private API keys (`.env`), Python packages (`.venv`), and caching files (`__pycache__`) from being uploaded to GitHub.
+*   `README.md`: The complete, beginner-friendly guide you are reading right now.
 
 Now that you understand the folder structure, let's move to how to set up and run the project.
 
