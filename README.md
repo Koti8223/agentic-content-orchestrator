@@ -387,15 +387,18 @@ pip install -r requirements.txt
 ```
 
 ### Step 4: Configure API Keys
-API keys are secret passwords used to authenticate with Anthropic (Claude) and Serper (Search). We store them in a `.env` file so they are never hardcoded directly into the public source code.
+API keys are secret passwords used to authenticate with your chosen LLM provider (such as Google Gemini, OpenAI, Anthropic Claude, or Groq). We store them in a `.env` file so they are never hardcoded directly into the public source code.
+
+> [!NOTE]
+> The Web Search Tool uses DuckDuckGo Search, which is completely free and does not require any search API key.
+
 1.  Copy the example env file:
     ```bash
     copy .env.example .env
     ```
-2.  Open `.env` and fill in your keys:
+2.  Open `.env` and fill in the API key for your chosen provider (e.g., Gemini):
     ```env
-    ANTHROPIC_API_KEY=your_actual_claude_key_here
-    SERPER_API_KEY=your_actual_serper_search_key_here
+    GOOGLE_API_KEY=your_actual_gemini_key_here
     ```
 
 ### Step 5: Launch the Application
@@ -439,17 +442,18 @@ Now that you understand how to use the app, let's move to the environment variab
 
 ## 15. ENVIRONMENT VARIABLES
 
-The project relies on these two environment variables:
+The project supports several LLM providers. You only need to configure the API key for the provider you want to use. The Web Search Tool is powered by DuckDuckGo and does not require an API key.
 
-| Variable | Description | Where to Get It |
-| :--- | :--- | :--- |
-| `ANTHROPIC_API_KEY` | Authenticates requests to the Claude model API. | [Anthropic Developer Console](https://console.anthropic.com/) |
-| `SERPER_API_KEY` | Authenticates queries to the Google Search engine. | [Serper.dev Dashboard](https://serper.dev/) |
+| Variable | Description | LLM Provider | Where to Get It |
+| :--- | :--- | :--- | :--- |
+| `GOOGLE_API_KEY` | Authenticates requests to Gemini models. | Google Gemini | [Google AI Studio](https://aistudio.google.com/) |
+| `OPENAI_API_KEY` | Authenticates requests to GPT models. | OpenAI | [OpenAI Platform](https://platform.openai.com/) |
+| `ANTHROPIC_API_KEY` | Authenticates requests to Claude models. | Anthropic | [Anthropic Console](https://console.anthropic.com/) |
+| `GROQ_API_KEY` | Authenticates requests to Llama models. | Groq | [Groq Console](https://console.groq.com/) |
 
-### Example `.env` File:
+### Example `.env` File (e.g., using Gemini):
 ```env
-ANTHROPIC_API_KEY=sk-ant-api03-abcdef123456...
-SERPER_API_KEY=abcde12345fg...
+GOOGLE_API_KEY=AIzaSy...
 ```
 
 > [!WARNING]
