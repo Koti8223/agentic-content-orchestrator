@@ -1,4 +1,4 @@
-﻿aiofiles==24.1.0
+aiofiles==24.1.0
 aiohappyeyeballs==2.6.2
 aiohttp==3.14.0
 aiosignal==1.4.0
@@ -192,3 +192,4 @@ yarl==1.24.2
 youtube-transcript-api==1.2.4
 zipp==4.1.0
 zstandard==0.25.0
+litellm
